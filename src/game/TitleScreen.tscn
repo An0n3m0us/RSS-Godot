@@ -1,19 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/images/title_screen.png" type="Texture" id=1]
-[ext_resource path="res://assets/images/play button.png" type="Texture" id=2]
-[ext_resource path="res://assets/images/settings button.png" type="Texture" id=3]
-[ext_resource path="res://src/scripts/PlayButton.gd" type="Script" id=4]
-[ext_resource path="res://src/scripts/SettingsButton.gd" type="Script" id=5]
+[ext_resource path="res://src/scripts/PlayButton.gd" type="Script" id=2]
+[ext_resource path="res://src/scripts/SettingsButton.gd" type="Script" id=3]
+[ext_resource path="res://assets/images/play button.png" type="Texture" id=4]
+[ext_resource path="res://src/scripts/Titlescreen.gd" type="Script" id=5]
+[ext_resource path="res://assets/images/settings button.png" type="Texture" id=6]
+[ext_resource path="res://assets/sfx/sfx1.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sfx/sfx2.wav" type="AudioStream" id=8]
 
 [node name="Titlescreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
@@ -38,12 +42,19 @@ margin_bottom = 150.0
 rect_pivot_offset = Vector2( 125, 75 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 4 )
 expand = true
-script = ExtResource( 4 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+loadScene = "res://src/game/GameScene.tscn"
+
+[node name="Hover" type="AudioStreamPlayer" parent="Buttons/PlayButton"]
+stream = ExtResource( 7 )
+
+[node name="Pressed" type="AudioStreamPlayer" parent="Buttons/PlayButton"]
+stream = ExtResource( 8 )
 
 [node name="SettingsButton" type="TextureButton" parent="Buttons"]
 margin_top = 250.0
@@ -52,13 +63,22 @@ margin_bottom = 400.0
 rect_pivot_offset = Vector2( 125, 75 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 6 )
 expand = true
-script = ExtResource( 5 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+loadScene = "res://src/game/SettingsScene.tscn"
+
+[node name="Hover" type="AudioStreamPlayer" parent="Buttons/SettingsButton"]
+stream = ExtResource( 7 )
+
+[node name="Pressed" type="AudioStreamPlayer" parent="Buttons/SettingsButton"]
+stream = ExtResource( 8 )
+[connection signal="button_down" from="Buttons/PlayButton" to="Buttons/PlayButton" method="_on_PlayButton_button_down"]
 [connection signal="mouse_entered" from="Buttons/PlayButton" to="Buttons/PlayButton" method="_on_PlayButton_mouse_entered"]
 [connection signal="mouse_exited" from="Buttons/PlayButton" to="Buttons/PlayButton" method="_on_PlayButton_mouse_exited"]
+[connection signal="button_down" from="Buttons/SettingsButton" to="Buttons/SettingsButton" method="_on_SettingsButton_button_down"]
 [connection signal="mouse_entered" from="Buttons/SettingsButton" to="Buttons/SettingsButton" method="_on_SettingsButton_mouse_entered"]
 [connection signal="mouse_exited" from="Buttons/SettingsButton" to="Buttons/SettingsButton" method="_on_SettingsButton_mouse_exited"]
