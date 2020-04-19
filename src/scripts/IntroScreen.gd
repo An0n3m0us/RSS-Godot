@@ -9,6 +9,7 @@ var fadein = 1
 func _ready():
 	logoScale = $Logo.scale
 	fade = $Fade.color
+	#GlobalAudio.get_node("Tokyo-bells").play()
 	pass
 	
 func _process(_delta):

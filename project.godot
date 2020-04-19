@@ -19,6 +19,10 @@ config/name="RSS"
 run/main_scene="res://src/game/IntroScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalAudio="*res://src/game/GlobalAudio.tscn"
+
 [display]
 
 window/size/width=1280

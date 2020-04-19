@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/fonts/default_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/images/mainhud.png" type="Texture" id=1]
 [ext_resource path="res://src/scripts/ReturnMainMenu.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/background placeholder.png" type="Texture" id=3]
 [ext_resource path="res://src/scripts/GameCamera.gd" type="Script" id=4]
@@ -22,39 +22,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 495.0
-margin_top = 268.0
-margin_right = 785.0
-margin_bottom = 452.0
-
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 290.0
-margin_bottom = 117.0
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 1 )
-text = "Game Scene
-"
-
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 121.0
-margin_right = 290.0
-margin_bottom = 184.0
-custom_fonts/font = ExtResource( 1 )
-text = "BACK"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 640, 360 )
 current = true
 script = ExtResource( 4 )
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="HUD" type="TextureRect" parent="Camera2D/CanvasLayer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_top = -131.0
+margin_right = 2.0
+margin_bottom = 2.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
