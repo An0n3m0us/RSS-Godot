@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/images/title_screen.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/frontgamebanner.png" type="Texture" id=1]
 [ext_resource path="res://src/scripts/PlayButton.gd" type="Script" id=2]
 [ext_resource path="res://src/scripts/SettingsButton.gd" type="Script" id=3]
 [ext_resource path="res://assets/images/play button.png" type="Texture" id=4]

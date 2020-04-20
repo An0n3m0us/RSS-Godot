@@ -28,12 +28,12 @@ func _process(_delta):
 			$Fade.visible = false
 			fadein -= 0.02
 		else:
-			get_tree().change_scene("res://src/game/TitleScreen.tscn")
+			return get_tree().change_scene("res://src/game/TitleScreen.tscn")
 	pass
 
 func _on_Fade_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
 			if event.pressed:
-				get_tree().change_scene("res://src/game/TitleScreen.tscn")
+				return get_tree().change_scene("res://src/game/TitleScreen.tscn")
 	pass
