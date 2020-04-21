@@ -6,4 +6,3 @@ func _ready():
 
 func _on_Button_pressed(loadScene):
 	var _return = get_tree().change_scene(loadScene)
-	pass

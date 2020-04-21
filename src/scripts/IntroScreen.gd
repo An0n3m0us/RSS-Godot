@@ -10,7 +10,6 @@ func _ready():
 	logoScale = $Logo.scale
 	fade = $Fade.color
 	#GlobalAudio.get_node("Tokyo-bells").play()
-	pass
 	
 func _process(_delta):
 	if logoScale[0] < 1:
@@ -29,11 +28,9 @@ func _process(_delta):
 			fadein -= 0.02
 		else:
 			return get_tree().change_scene("res://src/game/TitleScreen.tscn")
-	pass
 
 func _on_Fade_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
 			if event.pressed:
 				return get_tree().change_scene("res://src/game/TitleScreen.tscn")
-	pass
