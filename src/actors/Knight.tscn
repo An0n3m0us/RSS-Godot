@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/images/normalesquireleftarm.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/normalesquirehead.png" type="Texture" id=2]
@@ -6,6 +6,134 @@
 [ext_resource path="res://assets/images/normalleftleg.png" type="Texture" id=4]
 [ext_resource path="res://assets/images/normalesquirebody.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/normalesquirerightarm.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle Knight Animation"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Arm_Right:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 5.0, -3.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Leg_Right:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -2.5, 2.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Leg_Left:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.25, 0.75 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -2.5, 2.5 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Head:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -1.0, 2.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Arm_Left:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.05, 0.55 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -3.0, 5.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Walking Knight Animation"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Arm_Right:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -7.5, 7.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Leg_Right:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -5.0, 5.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Leg_Left:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.25, 0.75 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 5.0, -5.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Head:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -1.0, 2.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Arm_Left:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.05, 0.55 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 7.5, -7.5 ]
+}
 
 [node name="Knight" type="Control"]
 anchor_right = 1.0
@@ -16,6 +144,7 @@ __meta__ = {
 
 [node name="Arm_Left" type="Sprite" parent="."]
 position = Vector2( 52.5, 61.5113 )
+rotation = 0.0789019
 texture = ExtResource( 1 )
 offset = Vector2( 13, 68 )
 
@@ -25,20 +154,30 @@ texture = ExtResource( 5 )
 
 [node name="Head" type="Sprite" parent="."]
 position = Vector2( 66.371, 45 )
+rotation = 0.0265339
 texture = ExtResource( 2 )
 offset = Vector2( 0, -14 )
 
 [node name="Leg_Left" type="Sprite" parent="."]
 position = Vector2( 63.8497, 167.994 )
+rotation = 0.00349877
 texture = ExtResource( 4 )
 offset = Vector2( 12, 46 )
 
 [node name="Leg_Right" type="Sprite" parent="."]
 position = Vector2( 64.4744, 173.388 )
+rotation = 0.0401345
 texture = ExtResource( 3 )
 offset = Vector2( 11, 48 )
 
 [node name="Arm_Right" type="Sprite" parent="."]
 position = Vector2( 55.8942, 62.5943 )
+rotation = -0.0467618
 texture = ExtResource( 6 )
 offset = Vector2( -5, 43 )
+
+[node name="IdleAnimation" type="AnimationPlayer" parent="."]
+"anims/Idle Knight Animation" = SubResource( 1 )
+
+[node name="WalkingAnimation" type="AnimationPlayer" parent="."]
+"anims/Walking Knight Animation" = SubResource( 2 )
