@@ -10,6 +10,6 @@ Kynan - Project Leader & Writer\
 Parry - Artist & Sound Designer\
 Sunshine - Artist\
 Koi-Katcid - Artist\
-Estella - Artist
+Estella - Artist\
 [MisterSir](https://github.com/CollinMendia) - Programmer\
 [An0n3m0us](https://github.com/An0n3m0us) - Programmer
