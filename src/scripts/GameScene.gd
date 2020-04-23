@@ -1,5 +1,15 @@
 extends Node2D
 
+func _ready():
+	var scene = load("res://src/actors/Esquire.tscn")
+	var player = scene.instance()
+	player.name = "Esquire1"
+	player.position = Vector2(200, 200)
+	add_child(player)
+	$Esquire1/Pivot/Selection.visible
+
+"""
+
 # Big thanks to KidsCanCode for drag-select code
 
 var dragging = false  # Are we currently dragging?
@@ -9,11 +19,6 @@ var select_rect = RectangleShape2D.new()  # Collision shape for drag box.
 
 var mouseFrom = 0
 var mouseTo = 0
-
-func _ready():
-	var scene = load("res://src/actors/Esquire.tscn")
-	var player = scene.instance()
-	add_child(player)
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
@@ -45,3 +50,4 @@ func _draw():
 	if dragging:
 		draw_rect(Rect2(drag_start, get_global_mouse_position() - drag_start),
 			Color(0, .5, .5, 0.5), true)
+"""
