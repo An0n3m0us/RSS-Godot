@@ -1,12 +1,18 @@
 extends Node2D
 
 func _ready():
-	var scene = load("res://src/actors/Esquire.tscn")
-	var player = scene.instance()
-	player.name = "Esquire1"
-	player.position = Vector2(200, 200)
-	add_child(player)
-	$Esquire1/Pivot/Selection.visible
+	pass
+	
+func _input(event):
+	if event is InputEventKey:
+		if event.pressed and event.scancode == KEY_1:
+			var scene = load("res://src/actors/Esquire.tscn")
+			var player = scene.instance()
+			var rng = RandomNumberGenerator.new()
+			rng.randomize()
+			player.name = str(rng.randf_range(-10.0, 10.0))
+			player.position = get_global_mouse_position()
+			add_child(player)
 
 """
 
