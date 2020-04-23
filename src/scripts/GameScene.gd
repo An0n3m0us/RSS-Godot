@@ -7,8 +7,10 @@ var select_rect = RectangleShape2D.new()  # Collision shape for drag box.
 
 # Big thanks to KidsCanCode for drag-select code
 
+var mouseFrom = 0
+var mouseTo = 0
+
 func _input(event):
-	print(event)
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.pressed:
 			if selected.size() == 0:
@@ -16,7 +18,8 @@ func _input(event):
 				drag_start = event.position
 			else:
 				for item in selected:
-					item.collider.target = event.position
+
+					item.position = Vector2(50, 50)
 					$Knight/ColorRect.visible = false
 				selected = []
 		elif dragging:
