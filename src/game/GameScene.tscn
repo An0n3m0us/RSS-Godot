@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/images/unitpanel/mainhud.png" type="Texture" id=1]
 [ext_resource path="res://src/scripts/GameScene.gd" type="Script" id=2]
@@ -6,10 +6,6 @@
 [ext_resource path="res://src/scripts/GameCamera.gd" type="Script" id=4]
 [ext_resource path="res://assets/images/backgrounds/castle.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/backgrounds/sunnyhut.png" type="Texture" id=6]
-[ext_resource path="res://assets/images/characters/normalesquire.png" type="Texture" id=7]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 21.6095, 111.006 )
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource( 2 )
@@ -67,27 +63,6 @@ margin_right = -1280.0
 margin_bottom = -1.0
 texture = ExtResource( 6 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Esquire" type="KinematicBody2D" parent="."]
-position = Vector2( 411.693, 227.522 )
-
-[node name="Sprite" type="Sprite" parent="Esquire"]
-texture = ExtResource( 7 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Esquire"]
-position = Vector2( -14.4133, 30.0754 )
-shape = SubResource( 1 )
-
-[node name="ColorRect" type="ColorRect" parent="Esquire"]
-visible = false
-margin_left = -44.0
-margin_top = -108.0
-margin_right = 15.0
-margin_bottom = 173.0
-color = Color( 0, 0.603922, 0.764706, 0.603922 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

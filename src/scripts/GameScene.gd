@@ -10,6 +10,11 @@ var select_rect = RectangleShape2D.new()  # Collision shape for drag box.
 var mouseFrom = 0
 var mouseTo = 0
 
+func _ready():
+	var scene = load("res://src/actors/Esquire.tscn")
+	var player = scene.instance()
+	add_child(player)
+
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.pressed:
@@ -19,7 +24,7 @@ func _input(event):
 			else:
 				for item in selected:
 					item.position = Vector2(50, 50)
-					$Esquire/ColorRect.visible = false
+					$Esquire/Pivot/Selection.visible = false
 				selected = []
 		elif dragging:
 			dragging = false
@@ -32,7 +37,7 @@ func _input(event):
 			query.transform = Transform2D(0, (drag_end + drag_start) / 2)
 			selected = space.intersect_shape(query)
 			for item in selected:
-				$Esquire/ColorRect.visible = true
+				$Esquire/Pivot/Selection.visible = true
 	if event is InputEventMouseMotion and dragging:
 		update()
 

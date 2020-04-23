@@ -1,23 +1,23 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/images/normalesquirebody.png" type="Texture" id=1]
-[ext_resource path="res://assets/images/normalrightleg.png" type="Texture" id=2]
-[ext_resource path="res://assets/images/normalesquirerightarm.png" type="Texture" id=3]
-[ext_resource path="res://assets/images/normalesquirehead.png" type="Texture" id=4]
-[ext_resource path="res://assets/images/normalesquireleftarm.png" type="Texture" id=5]
-[ext_resource path="res://assets/images/normalleftleg.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/characters/normalesquirebody.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/characters/normalesquirerightleg.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/characters/normalesquirerightarm.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/characters/normalesquirehead.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/characters/normalesquireleftarm.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/characters/normalesquireleftleg.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 17.3681, 132.368 )
 
 [node name="Esquire" type="KinematicBody2D"]
+position = Vector2( 200, 200 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Pivot" type="Position2D" parent="."]
-position = Vector2( 1.9495, 34.9729 )
 
 [node name="Arm_Left" type="Sprite" parent="Pivot"]
 position = Vector2( -9.7265, -76.1909 )
@@ -60,5 +60,4 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.9495, 34.9729 )
 shape = SubResource( 1 )
