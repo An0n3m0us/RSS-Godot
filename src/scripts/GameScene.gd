@@ -19,7 +19,7 @@ func _input(event):
 			else:
 				for item in selected:
 					item.position = Vector2(50, 50)
-					$Knight/ColorRect.visible = false
+					$Esquire/ColorRect.visible = false
 				selected = []
 		elif dragging:
 			dragging = false
@@ -32,7 +32,7 @@ func _input(event):
 			query.transform = Transform2D(0, (drag_end + drag_start) / 2)
 			selected = space.intersect_shape(query)
 			for item in selected:
-				$Knight/ColorRect.visible = true
+				$Esquire/ColorRect.visible = true
 	if event is InputEventMouseMotion and dragging:
 		update()
 

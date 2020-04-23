@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/images/frontgamebanner.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/backgrounds/frontgamebanner.png" type="Texture" id=1]
 [ext_resource path="res://src/scripts/PlayButton.gd" type="Script" id=2]
 [ext_resource path="res://src/scripts/SettingsButton.gd" type="Script" id=3]
-[ext_resource path="res://assets/images/button-play.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/gui/button-play.png" type="Texture" id=4]
 [ext_resource path="res://src/scripts/Titlescreen.gd" type="Script" id=5]
-[ext_resource path="res://assets/images/button-settings.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/gui/button-settings.png" type="Texture" id=6]
 [ext_resource path="res://assets/sfx/sfx1.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/sfx/sfx2.wav" type="AudioStream" id=8]
 
