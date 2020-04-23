@@ -71,17 +71,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Knight" type="KinematicBody2D" parent="."]
+[node name="Esquire" type="KinematicBody2D" parent="."]
 position = Vector2( 411.693, 227.522 )
 
-[node name="Sprite" type="Sprite" parent="Knight"]
+[node name="Sprite" type="Sprite" parent="Esquire"]
 texture = ExtResource( 7 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Knight"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Esquire"]
 position = Vector2( -14.4133, 30.0754 )
 shape = SubResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="Knight"]
+[node name="ColorRect" type="ColorRect" parent="Esquire"]
 visible = false
 margin_left = -44.0
 margin_top = -108.0

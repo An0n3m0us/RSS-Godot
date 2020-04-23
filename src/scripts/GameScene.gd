@@ -1,11 +1,11 @@
 extends Node2D
 
+# Big thanks to KidsCanCode for drag-select code
+
 var dragging = false  # Are we currently dragging?
 var selected = []  # Array of selected units.
 var drag_start = Vector2.ZERO  # Location where drag began.
 var select_rect = RectangleShape2D.new()  # Collision shape for drag box.
-
-# Big thanks to KidsCanCode for drag-select code
 
 var mouseFrom = 0
 var mouseTo = 0
@@ -18,7 +18,6 @@ func _input(event):
 				drag_start = event.position
 			else:
 				for item in selected:
-
 					item.position = Vector2(50, 50)
 					$Knight/ColorRect.visible = false
 				selected = []
