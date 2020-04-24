@@ -1,8 +1,18 @@
 extends Node2D
 
+# Big thanks to KidsCanCode for drag-select code
+
+var dragging = false  # Are we currently dragging?
+var selected = []  # Array of selected units.
+var drag_start = Vector2.ZERO  # Location where drag began.
+var select_rect = RectangleShape2D.new()  # Collision shape for drag box.
+
+var mouseFrom = 0
+var mouseTo = 0
+
 func _ready():
 	pass
-	
+
 func _input(event):
 	if event is InputEventKey:
 		if event.pressed and event.scancode == KEY_1:
@@ -14,19 +24,6 @@ func _input(event):
 			player.position = get_global_mouse_position()
 			add_child(player)
 
-"""
-
-# Big thanks to KidsCanCode for drag-select code
-
-var dragging = false  # Are we currently dragging?
-var selected = []  # Array of selected units.
-var drag_start = Vector2.ZERO  # Location where drag began.
-var select_rect = RectangleShape2D.new()  # Collision shape for drag box.
-
-var mouseFrom = 0
-var mouseTo = 0
-
-func _input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.pressed:
 			if selected.size() == 0:
@@ -34,8 +31,8 @@ func _input(event):
 				drag_start = event.position
 			else:
 				for item in selected:
-					item.position = Vector2(50, 50)
-					$Esquire/Pivot/Selection.visible = false
+					item.collider.position = event.position
+					#$Esquire/Pivot/Selection.visible = false
 				selected = []
 		elif dragging:
 			dragging = false
@@ -48,7 +45,7 @@ func _input(event):
 			query.transform = Transform2D(0, (drag_end + drag_start) / 2)
 			selected = space.intersect_shape(query)
 			for item in selected:
-				$Esquire/Pivot/Selection.visible = true
+				print(item.collider.position)
 	if event is InputEventMouseMotion and dragging:
 		update()
 
@@ -56,4 +53,3 @@ func _draw():
 	if dragging:
 		draw_rect(Rect2(drag_start, get_global_mouse_position() - drag_start),
 			Color(0, .5, .5, 0.5), true)
-"""
