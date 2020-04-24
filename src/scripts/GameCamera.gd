@@ -3,7 +3,6 @@ extends Camera2D
 const MOVE_SPEED = 500
 
 func _process(delta):
-	
 	# Movement
 	if Input.is_key_pressed(KEY_UP) or Input.is_key_pressed(KEY_W):
 		global_position += Vector2.UP * delta * MOVE_SPEED
