@@ -23,6 +23,15 @@ func _input(event):
 			player.name = str(rng.randf_range(-10.0, 10.0))
 			player.position = get_global_mouse_position()
 			add_child(player)
+		if event.pressed and event.scancode == KEY_2:
+			var scene = load("res://src/actors/Esquire-enemy.tscn")
+			var player = scene.instance()
+			var rng = RandomNumberGenerator.new()
+			rng.randomize()
+			player.name = str(rng.randf_range(-10.0, 10.0))
+			player.position = get_global_mouse_position()
+			player.scale = Vector2(-1, 1)
+			add_child(player)
 
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.pressed:
@@ -45,7 +54,7 @@ func _input(event):
 			query.transform = Transform2D(0, (drag_end + drag_start) / 2)
 			selected = space.intersect_shape(query)
 			for item in selected:
-				print(item.collider.position)
+				print(item.collider.name)
 	if event is InputEventMouseMotion and dragging:
 		update()
 
