@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/images/characters/normalesquirebody.png" type="Texture" id=1]
 [ext_resource path="res://assets/images/characters/normalesquirerightleg.png" type="Texture" id=2]
@@ -6,11 +6,13 @@
 [ext_resource path="res://assets/images/characters/normalesquirehead.png" type="Texture" id=4]
 [ext_resource path="res://assets/images/characters/normalesquireleftarm.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/characters/normalesquireleftleg.png" type="Texture" id=6]
+[ext_resource path="res://src/actors/Esquire.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 17.3681, 132.368 )
+extents = Vector2( 10.4218, 17.87 )
 
 [node name="Esquire" type="KinematicBody2D"]
+script = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -53,7 +55,7 @@ margin_left = -27.9495
 margin_top = -133.973
 margin_right = 31.0505
 margin_bottom = 140.027
-color = Color( 0, 0.603922, 0.764706, 0.603922 )
+color = Color( 0, 0.603922, 0.764706, 0.235294 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
