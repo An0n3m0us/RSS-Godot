@@ -33,6 +33,9 @@ func _input(event):
 			add_child(player)
 
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
+		
+		print(selected.size())
+		
 		if event.pressed:
 			if selected.size() == 0:
 				dragging = true
@@ -53,6 +56,9 @@ func _input(event):
 			query.set_shape(select_rect)
 			query.transform = Transform2D(0, (drag_end + drag_start) / 2)
 			selected = space.intersect_shape(query)
+			
+			print(selected.size())
+			
 			for item in selected:
 				item.collider.selected = true
 				item.collider.get_node("Pivot").get_node("Selection").visible = true
@@ -63,3 +69,4 @@ func _draw():
 	if dragging:
 		draw_rect(Rect2(drag_start, get_global_mouse_position() - drag_start),
 			Color(0, .5, .5, 0.5), true)
+	#draw_texture_rect("res://assets/images/unitpanel/normalicon.png", Rect2(50, 50, 50, 50), 0)
