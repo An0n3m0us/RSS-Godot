@@ -16,3 +16,6 @@ func _physics_process(_delta):
 	velocity = position.direction_to(target) * speed
 	if position.distance_to(target) > 5:
 		velocity = move_and_slide(velocity)
+
+	if is_on_wall() or is_on_floor():
+		target = position

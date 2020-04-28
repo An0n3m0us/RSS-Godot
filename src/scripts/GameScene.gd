@@ -33,9 +33,6 @@ func _input(event):
 			add_child(player)
 
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
-		
-		print(selected.size())
-		
 		if event.pressed:
 			if selected.size() == 0:
 				dragging = true
@@ -56,9 +53,6 @@ func _input(event):
 			query.set_shape(select_rect)
 			query.transform = Transform2D(0, (drag_end + drag_start) / 2)
 			selected = space.intersect_shape(query)
-			
-			print(selected.size())
-			
 			for item in selected:
 				item.collider.selected = true
 				item.collider.get_node("Pivot").get_node("Selection").visible = true
