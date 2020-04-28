@@ -10,6 +10,9 @@
 
 [node name="Esquire-enemy" instance=ExtResource( 1 )]
 
+[node name="Pivot" parent="." index="2"]
+scale = Vector2( -1, 1 )
+
 [node name="Arm_Left" parent="Pivot" index="0"]
 texture = ExtResource( 3 )
 

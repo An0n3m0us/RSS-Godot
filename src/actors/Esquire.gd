@@ -19,3 +19,8 @@ func _physics_process(_delta):
 
 	if is_on_wall() or is_on_floor():
 		target = position
+
+	if target[0] < position[0]:
+		self.get_node("Pivot").scale = Vector2(-1, 1)
+	elif target[0] > position[0]:
+		self.get_node("Pivot").scale = Vector2(1, 1)

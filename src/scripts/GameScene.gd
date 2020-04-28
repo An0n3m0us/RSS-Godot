@@ -29,7 +29,6 @@ func _input(event):
 			player.name = "Esquire-enemy"+str(rng.randf_range(-10.0, 10.0))
 			player.position = get_global_mouse_position()
 			player.target = player.position
-			player.scale = Vector2(-1, 1)
 			add_child(player)
 
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
