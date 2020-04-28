@@ -33,15 +33,14 @@ func _input(event):
 
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.pressed:
-			if selected.size() == 0:
-				dragging = true
-				drag_start = get_global_mouse_position()
-			else:
-				for item in selected:
-					item.collider.target = get_global_mouse_position()
-					item.collider.selected = false
-					item.collider.get_node("Pivot").get_node("Selection").visible = false
-				selected = []
+			#if selected.size() == 0:
+			#else:
+			for item in selected:
+				item.collider.selected = false
+				item.collider.get_node("Pivot").get_node("Selection").visible = false
+			selected = []
+			dragging = true
+			drag_start = get_global_mouse_position()
 		elif dragging:
 			dragging = false
 			update()
@@ -62,4 +61,7 @@ func _draw():
 	if dragging:
 		draw_rect(Rect2(drag_start, get_global_mouse_position() - drag_start),
 			Color(0, .5, .5, 0.5), true)
-	#draw_texture_rect("res://assets/images/unitpanel/normalicon.png", Rect2(50, 50, 50, 50), 0)
+
+	#print(selected)
+	#draw_rect(Rect2(50, 25, 100, 25), Color(255, 0, 0))
+	#draw_texture_rect(texture, Rect2(50, 50, 50, 50), 0)
