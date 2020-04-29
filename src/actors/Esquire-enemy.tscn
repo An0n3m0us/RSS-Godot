@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/images/characters/enemyesquirerightarm.png" type="Texture" id=7]
 
 [node name="Esquire-enemy" instance=ExtResource( 1 )]
+type = "Esquire-enemy"
 
 [node name="Pivot" parent="." index="2"]
 scale = Vector2( -1, 1 )

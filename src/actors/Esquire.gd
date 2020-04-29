@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+export (String) var type = ""
 export (int) var health = 10
 export (int) var speed = 200
 

@@ -53,6 +53,7 @@ func _input(event):
 			selected = space.intersect_shape(query)
 			for item in selected:
 				item.collider.selected = true
+				print(item.collider.type)
 				item.collider.get_node("Pivot").get_node("Selection").visible = true
 	if event is InputEventMouseMotion and dragging:
 		update()
@@ -62,6 +63,17 @@ func _draw():
 		draw_rect(Rect2(drag_start, get_global_mouse_position() - drag_start),
 			Color(0, .5, .5, 0.5), true)
 
-	#print(selected)
-	#draw_rect(Rect2(50, 25, 100, 25), Color(255, 0, 0))
+	if selected.size() > 0:
+		for i in range(0, selected.size()):
+			var uniticon = preload("res://src/unitpanel/UnitIcon.tscn").instance()
+			if selected[i].collider.type == "Esquire":
+				uniticon.get_child(0).texture = load("res://assets/images/unitpanel/normalicon.png")
+			else:
+				uniticon.get_child(0).texture = load("res://assets/images/unitpanel/enemyicon.png")
+			uniticon.position = Vector2(360+(i*50)+(i*15), 655)
+			get_node("Units").add_child(uniticon)
+	else:
+		for n in get_node("Units").get_children():
+			get_node("Units").remove_child(n)
+			n.queue_free()
 	#draw_texture_rect(texture, Rect2(50, 50, 50, 50), 0)

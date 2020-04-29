@@ -10,36 +10,35 @@
 [node name="GameScene" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Background" type="TextureRect" parent="."]
-show_behind_parent = true
+[node name="Backgrounds" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="Backgrounds"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1280.0
-margin_bottom = 720.0
 texture = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Castle" type="TextureRect" parent="."]
+[node name="Castle" type="TextureRect" parent="Backgrounds"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1280.0
-margin_right = 2560.0
-margin_bottom = 720.0
+margin_right = 1280.0
 texture = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Hut" type="TextureRect" parent="."]
+[node name="Hut" type="TextureRect" parent="Backgrounds"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1280.0
 margin_top = -509.0
-margin_bottom = 720.0
+margin_right = -1280.0
 texture = ExtResource( 6 )
 expand = true
 __meta__ = {
@@ -52,6 +51,7 @@ current = true
 script = ExtResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+layer = 0
 
 [node name="HUD" type="TextureRect" parent="Camera2D/CanvasLayer"]
 anchor_top = 1.0
@@ -66,3 +66,6 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Units" type="CanvasLayer" parent="."]
+layer = 2
