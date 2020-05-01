@@ -1,0 +1,292 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/images/characters/normalesquirebody.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/characters/normalesquirerightleg.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/characters/normalesquirerightarm.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/characters/normalesquirehead.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/characters/normalesquireleftarm.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/characters/normalesquireleftleg.png" type="Texture" id=6]
+[ext_resource path="res://src/actors/Esquire.gd" type="Script" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "esquireanimation"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Leg_Right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.251574, 0.747584, 1.00712 ),
+"transitions": PoolRealArray( 0.732043, 1.31951, 1.31951, 0.732043 ),
+"update": 0,
+"values": [ Vector2( 4.196, 70.644 ), Vector2( 10, 70.644 ), Vector2( -5, 70.644 ), Vector2( 4.196, 70.644 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Leg_Right:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.251574, 0.746431, 1.00712 ),
+"transitions": PoolRealArray( 0.574351, 1.27456, 1.51572, 0.574351 ),
+"update": 0,
+"values": [ 0.0, -55.9, 49.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/Leg_Left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.251574, 0.747584, 1.00712 ),
+"transitions": PoolRealArray( 0.68302, 1.68179, 0.68302, 0.68302 ),
+"update": 0,
+"values": [ Vector2( 3.572, 65.264 ), Vector2( 10, 65.264 ), Vector2( -5, 65.264 ), Vector2( 3.572, 65.264 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pivot/Leg_Left:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.251574, 0.747584, 1.00712 ),
+"transitions": PoolRealArray( 0.535887, 1.41421, 1.36604, 0.535887 ),
+"update": 0,
+"values": [ 0.0, 55.9, -42.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pivot/Arm_Right:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.251574, 0.747584, 1.00712 ),
+"transitions": PoolRealArray( 0.594604, 1.56917, 1.51572, 0.594604 ),
+"update": 0,
+"values": [ Vector2( -4.383, -40.149 ), Vector2( -6, -40.149 ), Vector2( -2, -40.149 ), Vector2( -4.383, -40.149 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Pivot/Arm_Right:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.251574, 0.751043, 1.00712 ),
+"transitions": PoolRealArray( 0.659754, 1.46409, 1.51572, 0.659754 ),
+"update": 0,
+"values": [ 0.0, -7.0, 7.0, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Pivot/Body:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.00712 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.36038, 0 ), Vector2( -1.36038, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Pivot/Body:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.251574, 0.748737, 1.00712 ),
+"transitions": PoolRealArray( 0.482968, 1.41421, 1.23114, 0.482968 ),
+"update": 0,
+"values": [ 0.0, -3.0, 3.0, 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pivot/Arm_Left:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.251574, 0.748737, 1.00712 ),
+"transitions": PoolRealArray( 0.63728, 1.51572, 1.62451, 0.63728 ),
+"update": 0,
+"values": [ Vector2( -7.777, -41.218 ), Vector2( -9, -41.218 ), Vector2( -5, -41.218 ), Vector2( -7.777, -41.218 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Pivot/Arm_Left:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.251574, 0.748737, 1.00712 ),
+"transitions": PoolRealArray( 0.615572, 1.51572, 1.51572, 0.615572 ),
+"update": 0,
+"values": [ 0.0, -4.0, 4.0, 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Pivot/Head:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.251574, 0.748737, 1.00712 ),
+"transitions": PoolRealArray( 0.329877, 1.62451, 1.27456, 0.329877 ),
+"update": 0,
+"values": [ Vector2( 6.093, -57.73 ), Vector2( 3.7, -57.73 ), Vector2( 8, -57.73 ), Vector2( 6.093, -57.73 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Pivot/Head:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.251574, 0.746431, 1.00712 ),
+"transitions": PoolRealArray( 0.594604, 1.46409, 1.56917, 0.594604 ),
+"update": 0,
+"values": [ 0.0, -3.0, 3.0, 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CollisionShape2D:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("CollisionShape2D:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath(".:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath(".:rotation_degrees")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Pivot:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Pivot:rotation_degrees")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10.4218, 17.87 )
+
+[node name="Esquire" type="KinematicBody2D"]
+script = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "esquireanimation"
+anims/esquireanimation = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Pivot" type="Position2D" parent="."]
+
+[node name="Arm_Left" type="Sprite" parent="Pivot"]
+position = Vector2( -8.46461, -41.218 )
+rotation = -0.0401287
+texture = ExtResource( 5 )
+offset = Vector2( 13, 68 )
+
+[node name="Head" type="Sprite" parent="Pivot"]
+position = Vector2( 4.18514, -57.73 )
+rotation = -0.0307579
+texture = ExtResource( 4 )
+offset = Vector2( 0, -14 )
+
+[node name="Leg_Left" type="Sprite" parent="Pivot"]
+position = Vector2( 7.02598, 65.264 )
+rotation = 0.610336
+texture = ExtResource( 6 )
+offset = Vector2( 12, 46 )
+
+[node name="Leg_Right" type="Sprite" parent="Pivot"]
+position = Vector2( 7.17244, 70.644 )
+rotation = -0.585495
+texture = ExtResource( 2 )
+offset = Vector2( 11, 48 )
+
+[node name="Body" type="Sprite" parent="Pivot"]
+position = Vector2( -1.36038, 0 )
+rotation = -0.0347557
+texture = ExtResource( 1 )
+
+[node name="Arm_Right" type="Sprite" parent="Pivot"]
+position = Vector2( -5.33288, -40.149 )
+rotation = -0.0671633
+texture = ExtResource( 3 )
+offset = Vector2( -5, 43 )
+
+[node name="Selection" type="ColorRect" parent="Pivot"]
+visible = false
+margin_left = -26.0
+margin_top = -99.0
+margin_right = 33.0
+margin_bottom = 175.0
+color = Color( 0, 0.603922, 0.764706, 0.235294 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
