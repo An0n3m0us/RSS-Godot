@@ -7,6 +7,8 @@ var selected = []  # Array of selected units.
 var drag_start = Vector2.ZERO  # Location where drag began.
 var select_rect = RectangleShape2D.new()  # Collision shape for drag box.
 
+var characters = 0
+
 func _ready():
 	pass
 
@@ -21,6 +23,7 @@ func _input(event):
 			player.position = get_global_mouse_position()
 			player.target = player.position
 			add_child(player)
+			characters += 1
 		if event.pressed and event.scancode == KEY_2:
 			var scene = load("res://src/actors/Esquire-enemy.tscn")
 			var player = scene.instance()
@@ -30,6 +33,7 @@ func _input(event):
 			player.position = get_global_mouse_position()
 			player.target = player.position
 			add_child(player)
+			characters += 1
 
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.pressed:
@@ -63,8 +67,9 @@ func _draw():
 		draw_rect(Rect2(drag_start, get_global_mouse_position() - drag_start),
 			Color(0, .5, .5, 0.5), true)
 
-	if selected.size() > 0:
-		for i in range(0, selected.size()):
+	# PUSH CHARACTERS TO TABLE TO ACCESS SELECTED VALUE
+	for i in range(0, characters):
+		if characters:
 			var uniticon = preload("res://src/unitpanel/UnitIcon.tscn").instance()
 			if selected[i].collider.type == "Esquire":
 				uniticon.get_child(0).texture = load("res://assets/images/unitpanel/normalicon.png")
@@ -72,8 +77,8 @@ func _draw():
 				uniticon.get_child(0).texture = load("res://assets/images/unitpanel/enemyicon.png")
 			uniticon.position = Vector2(360+(i*50)+(i*15), 655)
 			get_node("Units").add_child(uniticon)
-	else:
-		for n in get_node("Units").get_children():
-			get_node("Units").remove_child(n)
-			n.queue_free()
+		else:
+			for n in get_node("Units").get_children():
+				get_node("Units").remove_child(n)
+				n.queue_free()
 	#draw_texture_rect(texture, Rect2(50, 50, 50, 50), 0)
