@@ -7,8 +7,6 @@ var selected = []  # Array of selected units.
 var drag_start = Vector2.ZERO  # Location where drag began.
 var select_rect = RectangleShape2D.new()  # Collision shape for drag box.
 
-var characters = 0
-
 func _ready():
 	pass
 
@@ -22,8 +20,7 @@ func _input(event):
 			player.name = "Esquire"+str(rng.randf_range(-10.0, 10.0))
 			player.position = get_global_mouse_position()
 			player.target = player.position
-			add_child(player)
-			characters += 1
+			get_node("Units").add_child(player)
 		if event.pressed and event.scancode == KEY_2:
 			var scene = load("res://src/actors/Esquire-enemy.tscn")
 			var player = scene.instance()
@@ -32,8 +29,7 @@ func _input(event):
 			player.name = "Esquire-enemy"+str(rng.randf_range(-10.0, 10.0))
 			player.position = get_global_mouse_position()
 			player.target = player.position
-			add_child(player)
-			characters += 1
+			get_node("Units").add_child(player)
 
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.pressed:
@@ -57,7 +53,6 @@ func _input(event):
 			selected = space.intersect_shape(query)
 			for item in selected:
 				item.collider.selected = true
-				print(item.collider.type)
 				item.collider.get_node("Pivot").get_node("Selection").visible = true
 	if event is InputEventMouseMotion and dragging:
 		update()
@@ -66,19 +61,27 @@ func _draw():
 	if dragging:
 		draw_rect(Rect2(drag_start, get_global_mouse_position() - drag_start),
 			Color(0, .5, .5, 0.5), true)
+			
+	for node in get_node("UnitPanel").get_children():
+		get_node("UnitPanel").remove_child(node)
 
-	# PUSH CHARACTERS TO TABLE TO ACCESS SELECTED VALUE
-	for i in range(0, characters):
-		if characters:
-			var uniticon = preload("res://src/unitpanel/UnitIcon.tscn").instance()
-			if selected[i].collider.type == "Esquire":
-				uniticon.get_child(0).texture = load("res://assets/images/unitpanel/normalicon.png")
-			else:
-				uniticon.get_child(0).texture = load("res://assets/images/unitpanel/enemyicon.png")
-			uniticon.position = Vector2(360+(i*50)+(i*15), 655)
-			get_node("Units").add_child(uniticon)
-		else:
-			for n in get_node("Units").get_children():
-				get_node("Units").remove_child(n)
-				n.queue_free()
-	#draw_texture_rect(texture, Rect2(50, 50, 50, 50), 0)
+func _process(_delta):
+	
+	# Unit panel
+	var list = get_node("Units").get_children()
+	var panelnames = []
+	for nodes in get_node("UnitPanel").get_children():
+		panelnames.append(nodes.name)
+	for unit in range(0, list.size()):
+		var i = get_node("UnitPanel").get_children().size()
+		if list[unit].selected == true:
+			if not list[unit].name in panelnames:
+				var uniticonscene = load("res://src/unitpanel/UnitIcon.tscn")
+				var uniticon = uniticonscene.instance()
+				if list[unit].type == "Esquire":
+					uniticon.get_child(0).texture = load("res://assets/images/unitpanel/normalicon.png")
+				else:
+					uniticon.get_child(0).texture = load("res://assets/images/unitpanel/enemyicon.png")
+				uniticon.set_name(list[unit].name)
+				uniticon.position = Vector2(360+(i*50)+(i*15), 655)
+				get_node("UnitPanel").add_child(uniticon)

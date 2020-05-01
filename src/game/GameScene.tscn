@@ -10,30 +10,33 @@
 [node name="GameScene" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Backgrounds" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
+follow_viewport_enable = true
 
-[node name="Background" type="TextureRect" parent="Backgrounds"]
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = 6.10352e-05
 texture = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Castle" type="TextureRect" parent="Backgrounds"]
+[node name="Castle" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1280.0
 margin_right = 1280.0
+margin_bottom = 6.10352e-05
 texture = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Hut" type="TextureRect" parent="Backgrounds"]
+[node name="Hut" type="TextureRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1280.0
@@ -45,15 +48,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Units" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enable = true
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 640, 360 )
 current = true
 script = ExtResource( 4 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-layer = 0
+[node name="HUDLayer" type="CanvasLayer" parent="Camera2D"]
 
-[node name="HUD" type="TextureRect" parent="Camera2D/CanvasLayer"]
+[node name="HUD" type="TextureRect" parent="Camera2D/HUDLayer"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -67,5 +73,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Units" type="CanvasLayer" parent="."]
-layer = 2
+[node name="UnitPanel" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
