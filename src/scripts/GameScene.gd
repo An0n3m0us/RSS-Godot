@@ -17,7 +17,7 @@ func _input(event):
 			var player = scene.instance()
 			var rng = RandomNumberGenerator.new()
 			rng.randomize()
-			player.name = "Esquire"+str(rng.randf_range(-10.0, 10.0))
+			player.name = "Esquire "+str(rng.randf_range(-10.0, 10.0))
 			player.position = get_global_mouse_position()
 			player.target = player.position
 			get_node("Units").add_child(player)
@@ -26,7 +26,7 @@ func _input(event):
 			var player = scene.instance()
 			var rng = RandomNumberGenerator.new()
 			rng.randomize()
-			player.name = "Esquire-enemy"+str(rng.randf_range(-10.0, 10.0))
+			player.name = "Esquire-enemy "+str(rng.randf_range(-10.0, 10.0))
 			player.position = get_global_mouse_position()
 			player.target = player.position
 			get_node("Units").add_child(player)
@@ -84,4 +84,6 @@ func _process(_delta):
 					uniticon.get_child(0).texture = load("res://assets/images/unitpanel/enemyicon.png")
 				uniticon.set_name(list[unit].name)
 				uniticon.position = Vector2(360+(i*50)+(i*15), 655)
+				uniticon.get_child(1).set_text(list[unit].name.split(" ")[0])
+				uniticon.get_child(3).set_size(Vector2(list[unit].health*5, 5))
 				get_node("UnitPanel").add_child(uniticon)
