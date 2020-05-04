@@ -74,11 +74,13 @@ func _process(_delta):
 		panelnames.append(nodes.name)
 	for unit in range(0, list.size()):
 		var i = get_node("UnitPanel").get_children().size()
+		
+		# Unit icon when selected
 		if list[unit].selected == true:
 			if not list[unit].name in panelnames:
 				var uniticonscene = load("res://src/unitpanel/UnitIcon.tscn")
 				var uniticon = uniticonscene.instance()
-				if list[unit].type == "Esquire":
+				if list[unit].name.split("-")[0]:
 					uniticon.get_child(0).texture = load("res://assets/images/unitpanel/normalicon.png")
 				else:
 					uniticon.get_child(0).texture = load("res://assets/images/unitpanel/enemyicon.png")
@@ -87,3 +89,6 @@ func _process(_delta):
 				uniticon.get_child(1).set_text(list[unit].name.split("-")[0])
 				uniticon.get_child(3).set_size(Vector2(list[unit].health*5, 5))
 				get_node("UnitPanel").add_child(uniticon)
+		# Check health
+		if list[unit].health <= 0:
+			get_node("Units").remove_child(list[unit])
