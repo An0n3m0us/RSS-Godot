@@ -92,3 +92,6 @@ func _process(_delta):
 		# Check health
 		if list[unit].health <= 0:
 			get_node("Units").remove_child(list[unit])
+		
+		if list[unit].name in panelnames:
+			get_node("Camera2D/UnitPanel/" + list[unit].name).get_child(3).set_size(Vector2(list[unit].health*5, 5))
