@@ -8,10 +8,10 @@
 [ext_resource path="res://assets/images/characters/normalesquireleftleg.png" type="Texture" id=6]
 [ext_resource path="res://src/actors/Esquire.gd" type="Script" id=7]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 27.2712, 119.496 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 19.3693, 37.1352 )
 
 [node name="Esquire" type="KinematicBody2D"]
@@ -67,10 +67,10 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Area2D"]
 position = Vector2( 1.70642, 31.8529 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( 1.327, 13.932 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 [connection signal="body_entered" from="Pivot/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Pivot/Area2D" to="." method="_on_Area2D_body_exited"]
