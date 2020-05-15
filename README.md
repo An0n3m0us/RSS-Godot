@@ -12,4 +12,4 @@ Parry - Artist & Sound Designer\
 Sunshine - Artist\
 Koi-Katcid - Artist\
 Estella - Artist\
-[MisterSir](https://github.com/CollinMendia) - Programmer\
+[MisterSir](https://github.com/CollinMendia) - Programmer
