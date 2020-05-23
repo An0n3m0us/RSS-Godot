@@ -33,8 +33,6 @@ func _input(event):
 
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.pressed:
-			#if selected.size() == 0:
-			#else:
 			for item in selected:
 				item.collider.selected = false
 				item.collider.get_node("Pivot").get_node("Selection").visible = false
