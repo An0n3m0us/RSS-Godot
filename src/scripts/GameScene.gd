@@ -17,7 +17,7 @@ func _input(event):
 			var player = scene.instance()
 			var rng = RandomNumberGenerator.new()
 			rng.randomize()
-			player.name = "Esquire-"+str(rng.randf_range(-10.0, 10.0))
+			player.name = player.name + "-"+str(rng.randf_range(-10.0, 10.0))
 			player.position = get_global_mouse_position()
 			player.target = player.position
 			get_node("Units").add_child(player)
@@ -26,7 +26,7 @@ func _input(event):
 			var player = scene.instance()
 			var rng = RandomNumberGenerator.new()
 			rng.randomize()
-			player.name = "Esquire_enemy-"+str(rng.randf_range(-10.0, 10.0))
+			player.name = player.name.replace("-", "_") + "-"+str(rng.randf_range(-10.0, 10.0))
 			player.position = get_global_mouse_position()
 			player.target = player.position
 			get_node("Units").add_child(player)
