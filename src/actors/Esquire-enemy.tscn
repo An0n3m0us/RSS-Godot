@@ -14,20 +14,20 @@ type = "enemy"
 [node name="Pivot" parent="." index="2"]
 scale = Vector2( -1, 1 )
 
-[node name="Arm_Left" parent="Pivot" index="0"]
-texture = ExtResource( 3 )
-
-[node name="Body" parent="Pivot" index="1"]
+[node name="Body" parent="Pivot" index="0"]
 texture = ExtResource( 2 )
 
-[node name="Head" parent="Pivot" index="2"]
+[node name="Arm_Left" parent="Pivot/Body" index="0"]
+texture = ExtResource( 3 )
+
+[node name="Head" parent="Pivot/Body" index="1"]
 texture = ExtResource( 5 )
 
-[node name="Leg_Left" parent="Pivot" index="3"]
+[node name="Leg_Left" parent="Pivot/Body" index="2"]
 texture = ExtResource( 6 )
 
-[node name="Leg_Right" parent="Pivot" index="4"]
+[node name="Leg_Right" parent="Pivot/Body" index="3"]
 texture = ExtResource( 4 )
 
-[node name="Arm_Right" parent="Pivot" index="5"]
+[node name="Arm_Right" parent="Pivot/Body" index="4"]
 texture = ExtResource( 7 )
