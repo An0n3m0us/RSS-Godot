@@ -4,7 +4,6 @@
 [ext_resource path="res://src/fonts/default_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/images/backgrounds/grad2.png" type="Texture" id=3]
 
-
 [node name="SettingsScene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -54,7 +53,7 @@ __meta__ = {
 
 [node name="Yes" type="Button" parent="Buttons"]
 margin_right = 128.0
-margin_bottom = 63.0
+margin_bottom = 68.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "YES"
@@ -65,7 +64,7 @@ __meta__ = {
 [node name="No" type="Button" parent="Buttons"]
 margin_left = 628.0
 margin_right = 756.0
-margin_bottom = 63.0
+margin_bottom = 68.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "NO"
