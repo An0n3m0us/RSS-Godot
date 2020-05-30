@@ -10,6 +10,7 @@
 
 [node name="RoyalKnight" instance=ExtResource( 1 )]
 health = 15
+speed = 70
 
 [node name="Body" parent="Pivot" index="0"]
 texture = ExtResource( 2 )

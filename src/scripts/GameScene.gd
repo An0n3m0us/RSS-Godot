@@ -11,26 +11,31 @@ func _ready():
 	pass
 
 func _input(event):
+	
+	# Adding units
 	if event is InputEventKey:
-		if event.pressed and event.scancode == KEY_1:
-			var scene = load("res://src/actors/Esquire.tscn")
-			var player = scene.instance()
-			var rng = RandomNumberGenerator.new()
-			rng.randomize()
-			player.name = player.name + "-"+str(rng.randf_range(-10.0, 10.0))
-			player.position = get_global_mouse_position()
-			player.target = player.position
-			get_node("Units").add_child(player)
-		if event.pressed and event.scancode == KEY_2:
-			var scene = load("res://src/actors/Esquire-enemy.tscn")
-			var player = scene.instance()
-			var rng = RandomNumberGenerator.new()
-			rng.randomize()
-			player.name = player.name.replace("-", "_") + "-"+str(rng.randf_range(-10.0, 10.0))
-			player.position = get_global_mouse_position()
-			player.target = player.position
-			get_node("Units").add_child(player)
+		if event.pressed:
+			var scene
+			var player
+			if event.scancode == KEY_1:
+				scene = load("res://src/actors/Esquire.tscn")
+				player = scene.instance()
+			if event.scancode == KEY_2:
+				scene = load("res://src/actors/Esquire-enemy.tscn")
+				player = scene.instance()
+			if event.scancode == KEY_3:
+				scene = load("res://src/actors/RoyalKnight.tscn")
+				player = scene.instance()
 
+			if player:
+				var rng = RandomNumberGenerator.new()
+				rng.randomize()
+				player.name = player.name + "_" + str(rng.randf_range(0, 10.0))
+				player.position = get_global_mouse_position()
+				player.target = player.position
+				get_node("Units").add_child(player)
+
+	# Drag-select
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.pressed:
 			for item in selected:
@@ -78,10 +83,8 @@ func _process(_delta):
 			if not list[unit].name in panelnames:
 				var uniticonscene = load("res://src/unitpanel/UnitIcon.tscn")
 				var uniticon = uniticonscene.instance()
-				if list[unit].name.split("-")[0] == "Esquire":
-					uniticon.get_child(0).texture = load("res://assets/images/unitpanel/normalicon.png")
-				else:
-					uniticon.get_child(0).texture = load("res://assets/images/unitpanel/enemyicon.png")
+				print(list[unit].name)
+				uniticon.get_child(0).texture = load("res://assets/images/unitpanel/" + list[unit].name.split("_")[0] + ".png")
 				uniticon.set_name(list[unit].name)
 				uniticon.position = Vector2(360+(i*50)+(i*15), 655)
 				uniticon.get_child(1).set_text(list[unit].name.split("-")[0].split("_")[0])

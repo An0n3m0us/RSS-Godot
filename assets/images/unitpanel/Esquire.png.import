@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemyicon.png-ec0e7e9fae88c857c40ab48322dd0abb.stex"
+path="res://.import/Esquire.png-55aec6ce57fe505348ed347639ee4f48.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/unitpanel/enemyicon.png"
-dest_files=[ "res://.import/enemyicon.png-ec0e7e9fae88c857c40ab48322dd0abb.stex" ]
+source_file="res://assets/images/unitpanel/Esquire.png"
+dest_files=[ "res://.import/Esquire.png-55aec6ce57fe505348ed347639ee4f48.stex" ]
 
 [params]
 
