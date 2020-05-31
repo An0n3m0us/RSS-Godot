@@ -10,6 +10,9 @@ var selected = false
 
 var healthdeplete = false
 
+# Health bar positioning
+# Storing original health count
+
 func _input(event):
 	if selected == true:
 		if event is InputEventMouseButton and event.button_index == BUTTON_RIGHT:

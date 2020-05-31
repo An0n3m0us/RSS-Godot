@@ -61,10 +61,13 @@ func _input(event):
 		update()
 
 func _draw():
+	
+	# Drag rect
 	if dragging:
 		draw_rect(Rect2(drag_start, get_global_mouse_position() - drag_start),
 			Color(0, .5, .5, 0.5), true)
-			
+	
+	# Redraw unit panel every frame
 	for node in get_node("Camera2D/UnitPanel").get_children():
 		get_node("Camera2D/UnitPanel").remove_child(node)
 
@@ -94,5 +97,6 @@ func _process(_delta):
 		if list[unit].health <= 0:
 			get_node("Units").remove_child(list[unit])
 		
+		# Set health
 		if list[unit].name in panelnames:
 			get_node("Camera2D/UnitPanel/" + list[unit].name).get_child(3).set_size(Vector2(list[unit].health*5, 5))
