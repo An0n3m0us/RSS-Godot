@@ -82,6 +82,8 @@ extents = Vector2( 17.861, 18.5336 )
 [node name="Esquire" type="KinematicBody2D"]
 script = ExtResource( 7 )
 type = "normal"
+health = 10
+speed = 100
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Esquire_walk = SubResource( 1 )

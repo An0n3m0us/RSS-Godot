@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
-export (String) var type = ""
-export (int) var health = 10
-export (int) var speed = 100
+export (String) var type
+export (int) var health
+export (int) var totalHealth
+export (int) var speed
 
 var target = Vector2()
 var velocity = Vector2()
@@ -11,7 +12,6 @@ var selected = false
 var healthdeplete = false
 
 # Health bar positioning
-# Storing original health count
 
 func _input(event):
 	if selected == true:
@@ -43,8 +43,8 @@ func _physics_process(delta):
 
 func _draw():
 	# Health bar
-	#if selected == true:
-	draw_rect(Rect2(self.get_node("Pivot").position[0]-24, self.get_node("Pivot").position[1]-60, health*5, 5), Color8(100, 0, 0))
+	#if selected == true:	
+	draw_rect(Rect2(self.get_node("Pivot").position[0]-24, self.get_node("Pivot").position[1]-60, totalHealth*5, 5), Color8(100, 0, 0))
 	draw_rect(Rect2(self.get_node("Pivot").position[0]-24, self.get_node("Pivot").position[1]-60, health*5, 5), Color8(255, 0 , 0))
 
 func _on_Area2D_body_entered(body):

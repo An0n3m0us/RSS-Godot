@@ -33,6 +33,7 @@ func _input(event):
 				player.name = player.name + "_" + str(rng.randf_range(0, 10.0))
 				player.position = get_global_mouse_position()
 				player.target = player.position
+				player.totalHealth = player.health
 				get_node("Units").add_child(player)
 
 	# Drag-select
@@ -86,13 +87,13 @@ func _process(_delta):
 			if not list[unit].name in panelnames:
 				var uniticonscene = load("res://src/unitpanel/UnitIcon.tscn")
 				var uniticon = uniticonscene.instance()
-				print(list[unit].name)
 				uniticon.get_child(0).texture = load("res://assets/images/unitpanel/" + list[unit].name.split("_")[0] + ".png")
 				uniticon.set_name(list[unit].name)
 				uniticon.position = Vector2(360+(i*50)+(i*15), 655)
 				uniticon.get_child(1).set_text(list[unit].name.split("-")[0].split("_")[0])
 				uniticon.get_child(3).set_size(Vector2(list[unit].health*5, 5))
 				get_node("Camera2D/UnitPanel").add_child(uniticon)
+
 		# Check health
 		if list[unit].health <= 0:
 			get_node("Units").remove_child(list[unit])
