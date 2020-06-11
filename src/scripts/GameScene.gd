@@ -33,7 +33,6 @@ func _input(event):
 				player.name = player.name + "_" + str(rng.randf_range(0, 10.0))
 				player.position = get_global_mouse_position()
 				player.target = player.position
-				player.totalHealth = player.health
 				get_node("Units").add_child(player)
 
 	# Drag-select

@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/images/characters/normal/royalKnight_LegLeft.png" type="Texture" id=7]
 
 [node name="RoyalKnight" instance=ExtResource( 1 )]
-health = 15
+healthMultiplier = 0.025
 speed = 70
 
 [node name="Body" parent="Pivot" index="0"]
