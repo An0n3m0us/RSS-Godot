@@ -8,7 +8,7 @@ var target = Vector2()
 var velocity = Vector2()
 var selected = false
 
-var health = 100
+var health = 10
 var healthdeplete = false
 
 # Health bar positioning
