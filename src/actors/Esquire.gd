@@ -36,7 +36,7 @@ func _physics_process(delta):
 		self.get_node("Pivot").scale = Vector2(1, 1)
 
 	# Check if colliding with object
-	if healthdeplete == true:
+	if healthdeplete:
 		health -= healthMultiplier
 
 	update()
