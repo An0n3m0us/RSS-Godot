@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="RSS-Godot2"
+config/name="RSS-Godot"
 config/icon="res://icon.png"
 
 [display]
