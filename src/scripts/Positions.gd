@@ -16,6 +16,7 @@ func _input(event):
 					var player = scene.instance()
 					player.name = self.name + "_unit"
 					player.position = Vector2(0, -50)
+					player.target = Vector2(0, -50)
 					self.add_child(player)
 						
 		for button in get_tree().get_nodes_in_group("buttons"):

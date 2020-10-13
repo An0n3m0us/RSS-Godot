@@ -4,12 +4,29 @@ export (String) var type
 export (float) var healthMultiplier
 export (int) var speed
 
+var target = Vector2()
+var velocity = Vector2()
 var selected = false
 
 var health = 10
 var healthdeplete = false
 
-func _physics_process(_delta):
+func _physics_process(delta):
+
+	var movement = position.direction_to(target) * speed
+	
+	# Check if distance is greater than 5
+	if position.distance_to(target) > 5:
+		velocity = move_and_collide(movement * delta)
+
+	if velocity:
+		target = position
+
+	# Check in which direction the character is moving
+	if target[0] < position[0]:
+		self.get_node("Pivot").scale = Vector2(-1, 1)
+	elif target[0] > position[0]:
+		self.get_node("Pivot").scale = Vector2(1, 1)
 
 	# Check if colliding with object
 	if healthdeplete:

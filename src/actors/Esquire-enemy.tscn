@@ -10,8 +10,9 @@
 
 [node name="Esquire-enemy" instance=ExtResource( 1 )]
 type = "enemy"
+speed = 25
 
-[node name="Pivot" parent="." index="2"]
+[node name="Pivot" parent="." index="0"]
 scale = Vector2( -1, 1 )
 
 [node name="Body" parent="Pivot" index="0"]
