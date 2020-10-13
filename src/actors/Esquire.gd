@@ -9,7 +9,7 @@ var selected = false
 var health = 10
 var healthdeplete = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	# Check if colliding with object
 	if healthdeplete:
